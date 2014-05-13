@@ -17,27 +17,27 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 ## Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/samsung/mondrianwifi/mondrianwifi-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/v1awifi/v1awifi-vendor.mk)
 
 ## We are a tablet, not a phone
 PRODUCT_CHARACTERISTICS := tablet
 
 ## overlays
-DEVICE_PACKAGE_OVERLAYS += device/samsung/mondrianwifi/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/v1awifi/overlay
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 2560
+TARGET_SCREEN_WIDTH := 1600
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
-    device/samsung/mondrianwifi/audio/audio_effects.conf:system/etc/audio_effects.conf \
-    device/samsung/mondrianwifi/audio/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/samsung/mondrianwifi/audio/audio_policy.conf:system/etc/audio_policy.conf \
+    device/samsung/v1awifi/audio/audio_effects.conf:system/etc/audio_effects.conf \
+    device/samsung/v1awifi/audio/mixer_paths.xml:system/etc/mixer_paths.xml \
+    device/samsung/v1awifi/audio/audio_policy.conf:system/etc/audio_policy.conf \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -52,7 +52,7 @@ PRODUCT_COPY_FILES += \
 
 # Media Profile
 PRODUCT_COPY_FILES += \
-    device/samsung/mondrianwifi/media/media_profiles.xml:system/etc/media_profiles.xml
+    device/samsung/v1awifi/media/media_profiles.xml:system/etc/media_profiles.xml
 
 # Extended media support
 PRODUCT_PACKAGES += \
@@ -62,7 +62,7 @@ PRODUCT_BOOT_JARS += qcmediaplayer
 
 # support for epen
 PRODUCT_COPY_FILES += \
-    device/samsung/mondrianwifi/sec_e-pen.idc:system/usr/idc/sec_e-pen.idc
+    device/samsung/v1awifi/sec_e-pen.idc:system/usr/idc/sec_e-pen.idc
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -71,21 +71,21 @@ PRODUCT_PACKAGES += \
     libloc_core \
     libloc_eng
 
-GPS_CONF := device/samsung/mondrianwifi/gps/etc/gps.conf
+GPS_CONF := device/samsung/v1awifi/gps/etc/gps.conf
 
 PRODUCT_COPY_FILES += \
     $(GPS_CONF):/system/etc/gps.conf \
-    device/samsung/mondrianwifi/gps/etc/sap.conf:/system/etc/sap.conf
+    device/samsung/v1awifi/gps/etc/sap.conf:/system/etc/sap.conf
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    device/samsung/mondrianwifi/keylayout/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl \
-    device/samsung/mondrianwifi/keylayout/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl \
-    device/samsung/mondrianwifi/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/samsung/mondrianwifi/keylayout/philips_remote_ir.kl:system/usr/keylayout/philips_remote_ir.kl \
-    device/samsung/mondrianwifi/keylayout/samsung_remote_ir.kl:system/usr/keylayout/samsung_remote_ir.kl \
-    device/samsung/mondrianwifi/keylayout/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl \
-    device/samsung/mondrianwifi/keylayout/ue_rf4ce_remote.kl:system/usr/keylayout/ue_rf4ce_remote.kl
+    device/samsung/v1awifi/keylayout/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl \
+    device/samsung/v1awifi/keylayout/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl \
+    device/samsung/v1awifi/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/samsung/v1awifi/keylayout/philips_remote_ir.kl:system/usr/keylayout/philips_remote_ir.kl \
+    device/samsung/v1awifi/keylayout/samsung_remote_ir.kl:system/usr/keylayout/samsung_remote_ir.kl \
+    device/samsung/v1awifi/keylayout/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl \
+    device/samsung/v1awifi/keylayout/ue_rf4ce_remote.kl:system/usr/keylayout/ue_rf4ce_remote.kl
 
 # NFC doesn't exist
 
@@ -138,8 +138,8 @@ PRODUCT_PACKAGES += \
     wcnss_service
 
 PRODUCT_COPY_FILES += \
-    kernel/samsung/mondrianwifi/drivers/net/wireless/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
-    kernel/samsung/mondrianwifi/drivers/net/wireless/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    kernel/samsung/v1awifi/drivers/net/wireless/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
+    kernel/samsung/v1awifi/drivers/net/wireless/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 # libxml2 is needed for camera
@@ -202,8 +202,8 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
-   device/samsung/mondrianwifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-   device/samsung/mondrianwifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
+   device/samsung/v1awifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+   device/samsung/v1awifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
 # Keymaster
 PRODUCT_PACKAGES += \
